@@ -4,15 +4,15 @@ import loadable from '@loadable/component';
 import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
 
 const UserList = loadable(() => import('./components/UserList/UserList'), {
-  fallback: LoadingSpinner,
+  fallback: <LoadingSpinner />,
 });
 
 const PostList = loadable(() => import('./components/PostList/PostList'), {
-  fallback: LoadingSpinner,
+  fallback: <LoadingSpinner />,
 });
 
 const AlbumList = loadable(() => import('./components/AlbumList/AlbumList.js'), {
-  fallback: LoadingSpinner,
+  fallback: <LoadingSpinner />,
 });
 
 const App = () => {
