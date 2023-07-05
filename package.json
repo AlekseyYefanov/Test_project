@@ -16,11 +16,14 @@
     "styled-components": "^6.0.2",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "https://AlekseyYefanov.github.io/Test_project",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +50,7 @@
     "@babel/preset-env": "^7.22.6",
     "@babel/preset-react": "^7.22.5",
     "babel-loader": "^9.1.2",
+    "gh-pages": "^5.0.0",
     "html-webpack-plugin": "^5.5.3",
     "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4",
