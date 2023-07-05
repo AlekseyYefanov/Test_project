@@ -1,21 +1,18 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Loadable from 'react-loadable';
+import loadable from '@loadable/component';
 import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
 
-const UserList = Loadable({
-  loader: () => import('./components/UserList/UserList'),
-  loading: LoadingSpinner,
+const UserList = loadable(() => import('./components/UserList/UserList'), {
+  fallback: LoadingSpinner,
 });
 
-const PostList = Loadable({
-  loader: () => import('./components/PostList/PostList'),
-  loading: LoadingSpinner,
+const PostList = loadable(() => import('./components/PostList/PostList'), {
+  fallback: LoadingSpinner,
 });
 
-const AlbumList = Loadable({
-  loader: () => import('./components/AlbumList/AlbumList.js'),
-  loading: LoadingSpinner,
+const AlbumList = loadable(() => import('./components/AlbumList/AlbumList.js'), {
+  fallback: LoadingSpinner,
 });
 
 const App = () => {

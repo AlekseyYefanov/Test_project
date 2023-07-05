@@ -1,11 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { ReactLoadablePlugin } = require('react-loadable/webpack');
+const LoadablePlugin = require('@loadable/webpack-plugin');
 
 module.exports = {
   entry: {
     main: './src/index.js',
-    server: './src/server.js', // Додали точку входу для серверного коду
+    server: './server.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -21,15 +21,17 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
-    new ReactLoadablePlugin({
-      filename: './dist/react-loadable.json',
-    }),
+    new LoadablePlugin(),
   ],
   optimization: {
     splitChunks: {
@@ -39,8 +41,8 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
   },
-  target: 'node', // Додали цей рядок для серверного коду
+  target: 'node',
   node: {
-    __dirname: false, // Додали цей рядок для серверного коду
+    __dirname: false, 
   },
 };

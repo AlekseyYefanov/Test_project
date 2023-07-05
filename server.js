@@ -1,15 +1,15 @@
 const express = require('express');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
-const App = require('./App'); // Замініть './App' на шлях до вашого основного компонента React
+const App = require('./src/App'); 
 
 const server = express();
 const port = 3000;
 
-server.use(express.static('dist')); // Папка, в якій зберігається зібраний бандл
+server.use(express.static('dist'));
 
 server.get('*', (req, res) => {
-  const app = ReactDOMServer.renderToString(React.createElement(App)); // Замініть React.createElement(App) на ваш основний компонент React
+  const app = ReactDOMServer.renderToString(React.createElement(App));
   const html = `
     <!DOCTYPE html>
     <html>
